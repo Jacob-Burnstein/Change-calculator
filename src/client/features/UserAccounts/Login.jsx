@@ -7,20 +7,24 @@ import "./Login.scss";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  //calls LOGIN endpoint
+  //calls Login endpoint
   const [login] = useLoginMutation();
 
-  // awaits successful LOGIN, and navigates to edit page
+  // awaits successful Login, and navigates to edit page
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await login({ username, password });
-    } catch (err) {
-      next(err);
+    if (!username.trim() || !password.trim()) {
+      setError("Incorrect username and/or password");
     }
-    navigate("/edit");
+    try {
+      await login({ username, password }).unwrap();
+      navigate("/edit");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -29,6 +33,7 @@ const Login = () => {
         <h1>Login</h1>
         <p>Log in to your store, or register to create a new store</p>
       </div>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>
           Welcome! <br />

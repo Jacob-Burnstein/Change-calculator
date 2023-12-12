@@ -2,14 +2,20 @@ const prisma = require("../../prisma");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const router = require("express").Router();
+const { ServerError } = require("../../errors/");
 module.exports = router;
 
 // Establishes backend endpoints for REGISTER, LOGIN and GET STORE DETAILS
 
-//// REGISTER
+//// Register
 router.post("/register", async (req, res, next) => {
   try {
     const { username, password } = req.body;
+
+    // Check if username and password provided
+    if (!username || !password) {
+      throw new ServerError(400, "Username and password required.");
+    }
     //check if store exists
     const checkStoreAvailable = await prisma.store.findUnique({
       where: {
@@ -18,7 +24,7 @@ router.post("/register", async (req, res, next) => {
     });
     // if it exists, send error
     if (checkStoreAvailable) {
-      return res.status(400).send("A store with that name already exists");
+      throw new ServerError(400, "A store with that name already exists");
     }
     // if username doesn't exist, create a new one
     const newStore = await prisma.store.create({
@@ -49,7 +55,7 @@ router.post("/login", async (req, res, next) => {
         token: jwt.sign({ id: foundUsername.id }, process.env.JWT),
       });
     }
-    res.status(401).send("incorrect username or password");
+    throw new ServerError(401, "incorrect username or password");
   } catch (err) {
     next(err);
   }
