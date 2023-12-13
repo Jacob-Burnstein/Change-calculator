@@ -11,6 +11,7 @@ const authApi = api.injectEndpoints({
         body: { username, password },
       }),
       invalidatesTags: ["StoreDetails"],
+      transformErrorResponse: (response) => response.data,
     }),
     login: builder.mutation({
       query: ({ username, password }) => ({
@@ -19,6 +20,7 @@ const authApi = api.injectEndpoints({
         body: { username, password },
       }),
       invalidatesTags: ["StoreDetails"],
+      transformErrorResponse: (response) => response.data,
     }),
     getStoreDetails: builder.query({
       query: () => `auth/`,
