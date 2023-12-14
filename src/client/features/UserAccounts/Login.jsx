@@ -7,20 +7,22 @@ import "./Login.scss";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
-  //calls LOGIN endpoint
-  const [login] = useLoginMutation();
+  //calls Login endpoint
+  const [login, { error: loginError }] = useLoginMutation();
 
-  // awaits successful LOGIN, and navigates to edit page
+  // awaits successful Login, and navigates to edit page
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      await login({ username, password });
+      await login({ username, password }).unwrap();
+      navigate("/edit");
     } catch (err) {
-      next(err);
+      console.error(err);
     }
-    navigate("/edit");
   };
 
   return (
@@ -29,6 +31,12 @@ const Login = () => {
         <h1>Login</h1>
         <p>Log in to your store, or register to create a new store</p>
       </div>
+
+      {loginError && (
+        <p role="alert" style={{ color: "red" }}>
+          {loginError}
+        </p>
+      )}
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>
           Welcome! <br />
@@ -50,13 +58,11 @@ const Login = () => {
         />
         <button className="form-button">Log In</button>
       </form>
-      <section className="nav-butons">
+
       <div className="register">
-        <p>Don't have a store yet? <br/> Register here:</p>
+        <p>Don't have a store yet? Register here:</p>
         <button onClick={() => navigate("/register")}>Register</button>
       </div>
-      <button onClick={() => navigate("/")}>Home</button>
-      </section>
     </>
   );
 };
