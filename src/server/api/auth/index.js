@@ -2,7 +2,7 @@ const prisma = require("../../prisma");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const router = require("express").Router();
-const { ServerError } = require("../../errors/");
+const { ServerError } = require("../../error/");
 module.exports = router;
 
 // Establishes backend endpoints for REGISTER, LOGIN and GET STORE DETAILS
