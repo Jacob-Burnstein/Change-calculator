@@ -51,7 +51,16 @@ form {
   .product {
     display: flex;
     align-items: center;
+    height: 20em;
+    min-width: fit-content;
+    max-width: 11em;
     width: 25%;
+
+    img {
+      aspect-ratio: fixed;
+      align-self: center;
+      width: 9em;
+    }
   }
 
   h3 {
