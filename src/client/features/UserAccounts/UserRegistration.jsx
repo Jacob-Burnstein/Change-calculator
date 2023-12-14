@@ -10,14 +10,17 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [register] = useRegisterMutation();
+  const [register, { error: registerError }] = useRegisterMutation();
   const [login] = useLoginMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      await register({ username, password });
-      await login({ username, password });
+      await register({ username, password }).unwrap();
+
+      await login({ username, password }).unwrap();
+
       navigate("/edit");
     } catch (error) {
       console.error("Error: ", error);
@@ -26,16 +29,22 @@ const Register = () => {
 
   return (
     <>
-      <div className="registerHeader">
+      <div className="loginHeader">
         <h1>Register</h1>
         <p>Register to create your own store</p>
       </div>
+      {registerError && (
+        <p role="alert" style={{ color: "red" }}>
+          {registerError}
+        </p>
+      )}
       <form className="login-form" onSubmit={handleSubmit}>
         <h2 className="registerFormWelcome">Welcome!</h2>
         <p className="registerFormText">
           {" "}
           Please enter a username and password:
         </p>
+
         <label className="form-labels">Username: </label>
         <input
           className="form-inputs"
