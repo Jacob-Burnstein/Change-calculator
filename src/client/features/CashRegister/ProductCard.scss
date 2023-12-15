@@ -5,12 +5,12 @@
   border-radius: 20px;
   box-shadow: 0 5px 0 lightgray;
   background-color: white;
-  height: 11em;
+  max-height: 11em;
   min-width: fit-content;
   max-width: 11em;
   img {
     aspect-ratio: fixed;
-    padding-top: 1em;
+    padding: 1em;
     align-self: center;
     width: 9em;
   }
