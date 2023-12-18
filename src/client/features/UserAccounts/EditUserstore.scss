@@ -39,7 +39,6 @@ form {
 }
 .product-list {
   display: flex;
-  // flex-flow: row-wrap;
   justify-content: center;
   height: 100%;
   overflow: auto;
@@ -51,7 +50,7 @@ form {
   .product {
     display: flex;
     align-items: center;
-    height: 20em;
+    max-height: 15em;
     min-width: fit-content;
     max-width: 11em;
     width: 25%;
