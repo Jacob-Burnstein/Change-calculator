@@ -12,8 +12,9 @@
     aspect-ratio: fixed;
     padding: 1em;
     align-self: center;
-    max-height: 6em;
     max-width: 9em;
+    max-height: 8em;
+    object-fit: contain;
   }
   margin: 2em;
   cursor: pointer;

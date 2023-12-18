@@ -59,7 +59,9 @@ form {
     img {
       aspect-ratio: fixed;
       align-self: center;
-      width: 9em;
+      max-width: 9em;
+      max-height: 8em;
+      object-fit: contain;
     }
   }
 
