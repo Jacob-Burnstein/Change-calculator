@@ -51,7 +51,7 @@ form {
   .product {
     display: flex;
     align-items: center;
-    height: 20em;
+    max-height: fit-content;
     min-width: fit-content;
     max-width: 11em;
     width: 25%;
