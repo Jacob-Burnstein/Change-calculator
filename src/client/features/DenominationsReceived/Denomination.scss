@@ -33,3 +33,9 @@
   border-radius: 50%;
   background-color: red;
 }
+
+@media (max-width: 516px) {
+  .bills {
+    width: 20em;
+  }
+}

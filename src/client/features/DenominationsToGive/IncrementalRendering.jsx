@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import Totalbar from "../TotalsBar/TotalsBar";
 import DenominationCard from "./DenominationCard";
 
-import "../DenominationsReceived/Denomination.scss";
 import "./IncrementalRendering.scss";
+import "../DenominationsReceived/Denomination.scss";
 
 // finds denominations with values > 0, and renders one at a time (onClick)
 const IncrementalRendering = () => {
@@ -39,18 +39,15 @@ const IncrementalRendering = () => {
   return (
     <>
       <body>
-        <section className="combinedHeading">
-          <div className="changeHeader">
-            <h1>Change</h1>
-            <p className="changeP">
-              Give each customer the bills and coins below
-            </p>
-          </div>
-          <br />
-          <div className="totalbar">
-            <Totalbar />
-          </div>
-        </section>
+        <div className="changeHeader">
+          <h1>Change</h1>
+          <p className="changeP">
+            Give each customer the bills and coins below
+          </p>
+        </div>
+        <div className="totalbar">
+          <Totalbar />
+        </div>
         <h3>Total Change Due: ${changeToGive.toFixed(2)}</h3>
         {renderedDenomination ? (
           <>
