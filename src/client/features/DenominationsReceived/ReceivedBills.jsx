@@ -95,6 +95,14 @@ const ReceivedBills = () => {
             const billSrc = billImgs[`dollarBill${billValue}`];
             return (
               <div className="billDiv" key={billValue}>
+                <>
+                  <button
+                    className="remove-button"
+                    onClick={() => handleBillRemovalClick(billValue)}
+                  >
+                    -
+                  </button>
+                </>
                 <img
                   src={billSrc}
                   alt={`${billValue}-dollar-bill`}
@@ -103,13 +111,7 @@ const ReceivedBills = () => {
                 />
                 {count > 0 && (
                   <>
-                    <p>x {count}</p>
-                    <button
-                      className="remove-button"
-                      onClick={() => handleBillRemovalClick(billValue)}
-                    >
-                      -
-                    </button>
+                    <p>x{count}</p>
                   </>
                 )}
                 <br />
