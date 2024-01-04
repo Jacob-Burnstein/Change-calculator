@@ -13,11 +13,10 @@ const TotalChange = () => {
 
   return (
     <body>
-      <div className="changeHeader">
+      <div className="changeHeading">
         <h1>Total Change</h1>
         <p>Check the customer's change with the bills and coins below</p>
       </div>
-      <br />
       <div className="totalbar">
         <Totalbar />
       </div>

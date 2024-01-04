@@ -1,17 +1,23 @@
-body {
-  display: flex;
-  flex-direction: column;
-}
-
 .changeHeader {
   background-color: #fbc59d;
   border-radius: 10px;
   width: 95vw;
-  height: 3em;
+  height: 4em;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  h1 {
+    margin: 20px;
+    padding: 0;
+    font-size: 1.5em;
+  }
+
+  p {
+    margin-right: 20px;
+    margin-left: 150px;
+  }
 }
 
 footer {
@@ -19,13 +25,10 @@ footer {
   align-items: center;
 }
 
-@media (max-width: 516px) {
-  .changeHeader {
-    height: fit-content;
-    border: solid;
-    flex-direction: column;
-  }
-  // .card {
-  //   height: 15%;
-  // }
-}
+// @media (max-width: 516px) {
+//   .changeHeader {
+//     height: fit-content;
+//     border: solid;
+//     flex-direction: column;
+//   }
+// }
