@@ -48,36 +48,42 @@ const IncrementalRendering = () => {
         <div className="totalbar">
           <Totalbar />
         </div>
-        <h3>Total Change Due: ${changeToGive.toFixed(2)}</h3>
-        {renderedDenomination ? (
-          <>
-            <div className="card">
-              <DenominationCard
-                denomination={renderedDenomination}
-                value={renderedValue}
-                className={
-                  renderedDenomination ===
-                  ("Quarters" || "Dimes" || "Nickels" || "Pennies")
-                    ? "coins"
-                    : "bills"
-                }
-              />
-            </div>
-            <footer>
-              <button onClick={() => navigate("/received-coins")}>Back</button>
-              {/* conditional to only display next button if there is another denomination/value to show */}
-              <div className="changeButtonDiv">
-                {index + 2 < renderingArray.length ? (
-                  <button onClick={() => setIndex(index + 2)}>Next</button>
-                ) : null}
-
-                <button onClick={() => navigate("/total-change")}>Total</button>
+        <section className="incremental-content">
+          <h3>Total Change Due: ${changeToGive.toFixed(2)}</h3>
+          {renderedDenomination ? (
+            <>
+              <div className="card">
+                <DenominationCard
+                  denomination={renderedDenomination}
+                  value={renderedValue}
+                  className={
+                    renderedDenomination ===
+                    ("Quarters" || "Dimes" || "Nickels" || "Pennies")
+                      ? "coins"
+                      : "bills"
+                  }
+                />
               </div>
-            </footer>
-          </>
-        ) : (
-          <button onClick={() => navigate("/")}>Home</button>
-        )}
+              <footer>
+                <button onClick={() => navigate("/received-coins")}>
+                  Back
+                </button>
+                {/* conditional to only display next button if there is another denomination/value to show */}
+                <div className="changeButtonDiv">
+                  {index + 2 < renderingArray.length ? (
+                    <button onClick={() => setIndex(index + 2)}>Next</button>
+                  ) : null}
+
+                  <button onClick={() => navigate("/total-change")}>
+                    Total
+                  </button>
+                </div>
+              </footer>
+            </>
+          ) : (
+            <button onClick={() => navigate("/")}>Home</button>
+          )}
+        </section>
       </body>
     </>
   );
