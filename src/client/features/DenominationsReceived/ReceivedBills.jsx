@@ -116,11 +116,8 @@ const ReceivedBills = () => {
                   className="bills"
                   onClick={() => handleBillClick(billValue)}
                 />
-                {count > 0 && (
-                  <>
-                    <p>x{count}</p>
-                  </>
-                )}
+
+                {bills[billValue] > 0 && <p>{bills[billValue]}</p>}
                 <br />
               </div>
             );
