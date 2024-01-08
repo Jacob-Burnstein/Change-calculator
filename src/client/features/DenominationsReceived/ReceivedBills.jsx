@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import {
   addTotalReceived,
   subtractTotalReceived,
+  addBills,
 } from "../CashRegister/cartSlice";
 import { useState } from "react";
 import Totalbar from "../TotalsBar/TotalsBar";
@@ -37,16 +38,10 @@ const billImgs = {
 const ReceivedBills = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const initialBills = useSelector((state) => state.cart.bills);
 
   // Inialize demonimation state object
-  const [bills, setBills] = useState({
-    100: 0,
-    50: 0,
-    20: 0,
-    10: 0,
-    5: 0,
-    1: 0,
-  });
+  const [bills, setBills] = useState(initialBills);
 
   //Popup: to show the total in the popup
   const { totalPrice } = useSelector((state) => state.cart);
@@ -67,7 +62,13 @@ const ReceivedBills = () => {
     }));
     // Increase total value recieved
     dispatch(addTotalReceived(billValue));
+    // Update state with bill quantities
+    dispatch(addBills(bills));
   };
+
+  useEffect(() => {
+    dispatch(addBills(bills));
+  }, [bills]);
 
   // Remove quantity of bill clicked and subtract from total value recieved
   const handleBillRemovalClick = (billValue) => {
@@ -90,35 +91,36 @@ const ReceivedBills = () => {
         <div className="totalbar">
           <Totalbar />
         </div>
-        <section className="billsSection">
-          {Object.entries(bills).map(([billValue, count]) => {
-            const billSrc = billImgs[`dollarBill${billValue}`];
-            return (
-              <div className="billDiv" key={billValue}>
-                <>
-                  <button
-                    className="remove-button"
-                    onClick={() => handleBillRemovalClick(billValue)}
-                  >
-                    -
-                  </button>
-                </>
-                <img
-                  src={billSrc}
-                  alt={`${billValue}-dollar-bill`}
-                  className="bills"
-                  onClick={() => handleBillClick(billValue)}
-                />
-                {count > 0 && (
+        <main>
+          <section className="billsSection">
+            {Object.entries(bills).map(([billValue]) => {
+              const billSrc = billImgs[`dollarBill${billValue}`];
+              return (
+                <div className="billDiv" key={billValue}>
                   <>
-                    <p>x{count}</p>
+                    {bills[billValue] > 0 && (
+                      <button
+                        className="remove-button"
+                        onClick={() => handleBillRemovalClick(billValue)}
+                      >
+                        -
+                      </button>
+                    )}
                   </>
-                )}
-                <br />
-              </div>
-            );
-          })}
-        </section>
+                  <img
+                    src={billSrc}
+                    alt={`${billValue}-dollar-bill`}
+                    className="bills"
+                    onClick={() => handleBillClick(billValue)}
+                  />
+
+                  {bills[billValue] > 0 && <p>x{bills[billValue]}</p>}
+                  <br />
+                </div>
+              );
+            })}
+          </section>
+        </main>
         <footer>
           <button onClick={() => navigate("/products")}>Back</button>
           <button

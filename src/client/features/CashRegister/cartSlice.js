@@ -16,6 +16,21 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   totalPrice: 0,
   totalReceived: 0,
+  bills: {
+    100: 0,
+    50: 0,
+    20: 0,
+    10: 0,
+    5: 0,
+    1: 0,
+  },
+  coins: {
+    100: 0,
+    25: 0,
+    10: 0,
+    5: 0,
+    1: 0,
+  },
   changeToGive: 0,
   calculatedChange: {},
   cartItems: [],
@@ -103,6 +118,14 @@ const cartSlice = createSlice({
       const value = action.payload;
       state.totalReceived += parseFloat(value);
     },
+    addBills: (state, action) => {
+      const value = action.payload;
+      state.bills = value;
+    },
+    addCoins: (state, action) => {
+      const value = action.payload;
+      state.coins = value;
+    },
     subtractTotalReceived: (state, action) => {
       const value = action.payload;
       state.totalReceived -= parseFloat(value);
@@ -120,6 +143,21 @@ const cartSlice = createSlice({
       state.calculatedChange = {};
       state.changeToGive = 0;
       state.cartItems = [];
+      state.bills = {
+        100: 0,
+        50: 0,
+        20: 0,
+        10: 0,
+        5: 0,
+        1: 0,
+      };
+      state.coins = {
+        100: 0,
+        25: 0,
+        10: 0,
+        5: 0,
+        1: 0,
+      };
     },
   },
 });
@@ -132,6 +170,8 @@ export const {
   addCalculatedChange,
   resetCart,
   setChangeToGive,
+  addBills,
+  addCoins,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
