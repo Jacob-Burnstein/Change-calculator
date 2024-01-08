@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import {
   addTotalReceived,
   subtractTotalReceived,
+  addBills,
 } from "../CashRegister/cartSlice";
 import { useState } from "react";
 import Totalbar from "../TotalsBar/TotalsBar";
@@ -67,7 +68,13 @@ const ReceivedBills = () => {
     }));
     // Increase total value recieved
     dispatch(addTotalReceived(billValue));
+    // Update state with bill quantities
+    dispatch(addBills(bills));
   };
+
+  useEffect(() => {
+    dispatch(addBills(bills));
+  }, [bills]);
 
   // Remove quantity of bill clicked and subtract from total value recieved
   const handleBillRemovalClick = (billValue) => {
