@@ -108,12 +108,14 @@ const ReceivedCoins = () => {
             const coinSrc = coinImgs[`centCoin${coinValue}`];
             return (
               <div className="coinDiv" key={coinValue}>
-                <button
-                  className="remove-button"
-                  onClick={() => handleCoinRemovalClick(coinValue)}
-                >
-                  -
-                </button>
+                {coins[coinValue] > 0 && (
+                  <button
+                    className="remove-button"
+                    onClick={() => handleCoinRemovalClick(coinValue)}
+                  >
+                    -
+                  </button>
+                )}
                 <img
                   src={coinSrc}
                   alt={`${coinValue}-cent-coin`}
@@ -122,7 +124,7 @@ const ReceivedCoins = () => {
                 />
                 {coins[coinValue] > 0 && (
                   <>
-                    <p>{coins[coinValue]}</p>
+                    <p>x{coins[coinValue]}</p>
                   </>
                 )}
                 <br />
