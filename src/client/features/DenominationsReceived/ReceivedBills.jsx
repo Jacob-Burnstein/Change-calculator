@@ -98,12 +98,14 @@ const ReceivedBills = () => {
               return (
                 <div className="billDiv" key={billValue}>
                   <>
-                    <button
-                      className="remove-button"
-                      onClick={() => handleBillRemovalClick(billValue)}
-                    >
-                      -
-                    </button>
+                    {bills[billValue] > 0 && (
+                      <button
+                        className="remove-button"
+                        onClick={() => handleBillRemovalClick(billValue)}
+                      >
+                        -
+                      </button>
+                    )}
                   </>
                   <img
                     src={billSrc}
@@ -112,7 +114,7 @@ const ReceivedBills = () => {
                     onClick={() => handleBillClick(billValue)}
                   />
 
-                  {bills[billValue] > 0 && <p>{bills[billValue]}</p>}
+                  {bills[billValue] > 0 && <p>x{bills[billValue]}</p>}
                   <br />
                 </div>
               );
