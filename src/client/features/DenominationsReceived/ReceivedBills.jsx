@@ -38,16 +38,10 @@ const billImgs = {
 const ReceivedBills = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const initialBills = useSelector((state) => state.cart.bills);
 
   // Inialize demonimation state object
-  const [bills, setBills] = useState({
-    100: 0,
-    50: 0,
-    20: 0,
-    10: 0,
-    5: 0,
-    1: 0,
-  });
+  const [bills, setBills] = useState(initialBills);
 
   //Popup: to show the total in the popup
   const { totalPrice } = useSelector((state) => state.cart);
@@ -97,32 +91,34 @@ const ReceivedBills = () => {
         <div className="totalbar">
           <Totalbar />
         </div>
-        <section className="billsSection">
-          {Object.entries(bills).map(([billValue, count]) => {
-            const billSrc = billImgs[`dollarBill${billValue}`];
-            return (
-              <div className="billDiv" key={billValue}>
-                <>
-                  <button
-                    className="remove-button"
-                    onClick={() => handleBillRemovalClick(billValue)}
-                  >
-                    -
-                  </button>
-                </>
-                <img
-                  src={billSrc}
-                  alt={`${billValue}-dollar-bill`}
-                  className="bills"
-                  onClick={() => handleBillClick(billValue)}
-                />
+        <main>
+          <section className="billsSection">
+            {Object.entries(bills).map(([billValue]) => {
+              const billSrc = billImgs[`dollarBill${billValue}`];
+              return (
+                <div className="billDiv" key={billValue}>
+                  <>
+                    <button
+                      className="remove-button"
+                      onClick={() => handleBillRemovalClick(billValue)}
+                    >
+                      -
+                    </button>
+                  </>
+                  <img
+                    src={billSrc}
+                    alt={`${billValue}-dollar-bill`}
+                    className="bills"
+                    onClick={() => handleBillClick(billValue)}
+                  />
 
-                {bills[billValue] > 0 && <p>{bills[billValue]}</p>}
-                <br />
-              </div>
-            );
-          })}
-        </section>
+                  {bills[billValue] > 0 && <p>{bills[billValue]}</p>}
+                  <br />
+                </div>
+              );
+            })}
+          </section>
+        </main>
         <footer>
           <button onClick={() => navigate("/products")}>Back</button>
           <button

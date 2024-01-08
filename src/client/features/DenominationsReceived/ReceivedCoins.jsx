@@ -16,8 +16,9 @@ import {
   subtractTotalReceived,
   addCalculatedChange,
   setChangeToGive,
+  addCoins,
 } from "../CashRegister/cartSlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import calculateChange from "./changeCalculation";
 import "./Denomination.scss";
@@ -42,14 +43,9 @@ const coinImgs = {
 const ReceivedCoins = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const initialCoins = useSelector((state) => state.cart.coins);
 
-  const [coins, setCoins] = useState({
-    100: 0,
-    25: 0,
-    10: 0,
-    5: 0,
-    1: 0,
-  });
+  const [coins, setCoins] = useState(initialCoins);
 
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
@@ -70,6 +66,10 @@ const ReceivedCoins = () => {
     // Increase total value recieved
     dispatch(addTotalReceived(coinValue / 100));
   };
+
+  useEffect(() => {
+    dispatch(addCoins(coins));
+  }, [coins]);
 
   // Remove quantity of coin clicked and subtract from total value recieved
   const handleCoinRemovalClick = (coinValue) => {
@@ -120,9 +120,9 @@ const ReceivedCoins = () => {
                   className={`coins coin-${coinValue}-cent`}
                   onClick={() => handleCoinClick(coinValue)}
                 />
-                {count > 0 && (
+                {coins[coinValue] > 0 && (
                   <>
-                    <p>x{count}</p>
+                    <p>{coins[coinValue]}</p>
                   </>
                 )}
                 <br />
