@@ -7,15 +7,16 @@ body {
 .header {
   background-color: #fbc59d;
   width: 100vw;
-  height: 6.5em;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 0;
+  margin: 0;
 
   h1 {
     font-size: 2.5em;
     margin: 0.25em;
+    justify-content: center;
   }
 
   p {
