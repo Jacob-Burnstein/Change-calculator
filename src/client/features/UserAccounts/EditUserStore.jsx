@@ -131,7 +131,7 @@ const EditUserStore = () => {
               <div className="product-list">
                 <ul className="inventory">
                   {storeData.map((product) => (
-                    <li key={product.id} className="product">
+                    <li key={product.id} className="edit-product">
                       <img src={product.imgUrl} />
                       <h3 className="product-name">{product.name}</h3>
                       <p>${product.price.toFixed(2)}</p>
@@ -147,7 +147,7 @@ const EditUserStore = () => {
               </div>
             </section>
             <footer className="buttonDiv">
-            <button onClick={() => navigate("/")}>Home</button>
+              <button onClick={() => navigate("/")}>Home</button>
               <button onClick={() => handleLogout()}>Log Out</button>
 
               <button
