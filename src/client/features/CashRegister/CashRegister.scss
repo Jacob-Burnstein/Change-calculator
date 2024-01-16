@@ -1,16 +1,17 @@
 body {
   display: flex;
   justify-content: space-between;
+  margin-top: 0;
 }
 
 .header {
   background-color: #fbc59d;
-  border-radius: 10px;
-  width: 95vw;
+  width: 100vw;
   height: 6.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 0;
 
   h1 {
     font-size: 2.5em;
@@ -28,7 +29,7 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  // align-items: stretch;
   padding-top: 1em;
   margin-top: 1em;
 
@@ -38,6 +39,7 @@ body {
       display: flex;
       flex-flow: row wrap;
       height: 95%;
+      max-width: 50em;
     }
   }
 
