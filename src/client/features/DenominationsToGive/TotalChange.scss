@@ -1,11 +1,11 @@
 .changeHeading {
   background-color: #fbc59d;
   width: 100vw;
-  height: 4em;
-  margin-bottom: 10px;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
 
   p {
     align-items: center;

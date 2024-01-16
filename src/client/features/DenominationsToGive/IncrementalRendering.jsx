@@ -39,7 +39,7 @@ const IncrementalRendering = () => {
   return (
     <>
       <body>
-        <section>
+        <section className="incremental-headers">
           <div className="totalsBar">
             <Totalbar />
           </div>
