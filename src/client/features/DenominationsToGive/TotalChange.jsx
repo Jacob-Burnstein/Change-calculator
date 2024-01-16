@@ -13,12 +13,11 @@ const TotalChange = () => {
 
   return (
     <body>
-      <div className="changeHeading">
-        <h1>Total Change</h1>
-        <p>Check the customer's change with the bills and coins below</p>
-      </div>
       <div className="totalbar">
         <Totalbar />
+      </div>{" "}
+      <div className="changeHeading">
+        <p>Check the customer's change with the bills and coins below</p>
       </div>
       <h3>Total Change Due: ${changeToGive.toFixed(2)}</h3>
       <section>

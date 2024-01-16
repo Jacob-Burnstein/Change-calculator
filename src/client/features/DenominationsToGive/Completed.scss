@@ -1,24 +1,30 @@
-
 .message {
-    border-radius: 10px;
-    background-color: white;
-    width: 100%;
+  margin-top: 25%;
+  background-color: white;
+  width: 100%;
+  border: 5px solid #ed8a53;
+  border-radius: 30px;
 }
 
 .finished_h1 {
-    font-size: 85px;
-    color: #97af88;
-    padding: 10px;
-    margin: 30px;
+  font-size: 85px;
+  color: #97af88;
+  padding: 10px;
+  margin: 30px;
 }
 
 .finished_h2 {
-    font-size: 70px;
-    padding: 10px;
-    margin: 30px;
-    font-weight: 100;
+  font-size: 70px;
+  padding: 10px;
+  margin: 30px;
+  font-weight: 100;
 }
 
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 button {
-    margin: 30px;
+  margin: 30px;
 }

@@ -19,10 +19,12 @@ const Completed = () => {
         <h2 className="finished_h2">
           Tell the customer: <br /> Have a great day!
         </h2>
-        <button onClick={() => navigate("/total-change")}>Back</button>
-        <button className="done" onClick={handleClick}>
-          Done
-        </button>
+        <footer>
+          <button onClick={() => navigate("/total-change")}>Back</button>
+          <button className="done" onClick={handleClick}>
+            Done
+          </button>
+        </footer>
       </div>
     </>
   );

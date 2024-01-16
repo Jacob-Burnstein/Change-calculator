@@ -5,7 +5,7 @@ body {
   align-items: center;
 }
 .start-screen-div {
-  margin-top: 8%;
+  margin-top: 12%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +26,6 @@ body {
 .start-button {
   padding: 4px;
   //   box-shadow: 0 5px 0 lightgray;
-  cursor: pointer;
   background-color: #ffaa6f;
   border-radius: 10px;
   margin: 30px;
@@ -45,7 +44,6 @@ body {
 .setup-button {
   padding: 4px;
   //   box-shadow: 0 5px 0 lightgray;
-  cursor: pointer;
   margin: 30px;
   background-color: #ffaa6f;
   border-radius: 10px;
