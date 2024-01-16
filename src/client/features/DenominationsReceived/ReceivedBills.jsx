@@ -84,12 +84,12 @@ const ReceivedBills = () => {
   return (
     <>
       <body>
-        <div className="receivedBillHeader">
-          <h1 className="receivedHeaderText">Received Bills</h1>
-          <p>Click on each bill that you received from the customer</p>
-        </div>
+        {" "}
         <div className="totalbar">
           <Totalbar />
+        </div>
+        <div className="receivedBillHeader">
+          <p>Click on each bill that you received from the customer</p>
         </div>
         <main>
           <section className="billsSection">

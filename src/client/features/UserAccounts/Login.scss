@@ -3,9 +3,8 @@
 // }
 .loginHeader {
   background-color: #c0dead;
-  border-radius: 10px;
-  height: 70px;
-  width: 95vw;
+  height: fit-content;
+  width: 100vw;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -14,7 +13,6 @@
     margin: 20px;
     padding: 0;
     font-size: 3.4vh;
-    max-height: 100%;
   }
 
   p {
@@ -28,7 +26,6 @@ form {
   background-color: white;
   border: 3px solid #ed8a53;
   border-radius: 30px;
-  box-shadow: 0 5px 0 lightgray;
   display: flex;
   flex-direction: column;
   margin: 30px;
@@ -60,7 +57,7 @@ form {
   flex-direction: column;
 
   p {
-    margin-bottom: 0px;
+    margin-bottom: 1em;
     margin-left: 20px;
     font-size: 12px;
   }

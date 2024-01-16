@@ -39,20 +39,21 @@ const IncrementalRendering = () => {
   return (
     <>
       <body>
-        <div className="changeHeader">
-          <h1>Change</h1>
-          <p className="changeP">
-            Give each customer the bills and coins below
-          </p>
-        </div>
-        <div className="totalbar">
-          <Totalbar />
-        </div>
+        <section className="incremental-headers">
+          <div className="totalsBar">
+            <Totalbar />
+          </div>
+          <div>
+            <p className="changeP">
+              Give each customer the bills and coins below
+            </p>
+          </div>
+        </section>
         <section className="incremental-content">
-          <h3>Total Change Due: ${changeToGive.toFixed(2)}</h3>
+          <h3>Total to return: ${changeToGive.toFixed(2)}</h3>
           {renderedDenomination ? (
             <>
-              <div className="card">
+              <section className="card">
                 <DenominationCard
                   denomination={renderedDenomination}
                   value={renderedValue}
@@ -63,7 +64,7 @@ const IncrementalRendering = () => {
                       : "bills"
                   }
                 />
-              </div>
+              </section>
               <footer>
                 <button onClick={() => navigate("/received-coins")}>
                   Back

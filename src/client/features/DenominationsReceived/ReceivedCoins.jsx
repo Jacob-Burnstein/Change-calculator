@@ -96,12 +96,12 @@ const ReceivedCoins = () => {
   return (
     <>
       <body>
-        <div className="receivedCoinHeader">
-          <h1 className="receivedHeaderText">Received Coins</h1>
-          <p>Click on each coin that you received from the customer</p>
-        </div>
+        {" "}
         <div className="totalbar">
           <Totalbar />
+        </div>
+        <div className="receivedCoinHeader">
+          <p>Click on each coin that you received from the customer</p>
         </div>
         <section className="coinsSection">
           {Object.entries(coins).map(([coinValue, count]) => {

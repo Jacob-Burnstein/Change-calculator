@@ -1,30 +1,23 @@
+// display: flex;
+//   // flex-direction: column;
+//   // align-items: center;body {
+//   //
+// }
+
 .receivedBillHeader {
   background-color: #fbc59d;
-  border-radius: 10px;
-  width: 95vw;
-  height: 4em;
-  margin-bottom: 10px;
+  width: 100vw;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  h1 {
-    margin: 20px;
-    padding: 0;
-    font-size: 1.5em;
-  }
+  margin: 0;
 
   p {
-    margin-right: 20px;
-    margin-left: 150px;
+    align-items: center;
   }
 }
 .billsSection {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates 2 equal-width columns */
-  gap: 1em; /* Adjust the gap between items as needed */
-  flex-grow: 1;
-  width: 85%;
   padding-top: 1em;
 }
 
@@ -35,11 +28,7 @@
   justify-content: center;
 
   img {
-    border-radius: 20px;
-    box-shadow: 0 5px 0 lightgray;
-    border: 6px solid white;
-    cursor: pointer;
-    margin: 3px;
+    margin: 2em;
   }
 
   img:active {
