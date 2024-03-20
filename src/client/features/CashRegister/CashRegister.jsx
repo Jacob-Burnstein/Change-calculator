@@ -85,10 +85,10 @@ const CashRegister = () => {
         <section className="footer">
           <Footer />
         </section>
-        <Popup trigger={timedPopup} setTrigger={setTimedPopup}>
+        {/* <Popup trigger={timedPopup} setTrigger={setTimedPopup}>
           <h1 className="popup-header">Greet the customer:</h1>
           <p className="popup-para">Hello, how can I help you today?</p>
-        </Popup>
+        </Popup> */}
       </body>
     </>
   );
