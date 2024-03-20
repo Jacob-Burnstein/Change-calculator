@@ -55,7 +55,7 @@ const CashRegister = () => {
     <>
       <body>
         <section className="header">
-          <h1>Welcome to your store!</h1>
+          <h1>Welcome!</h1>
           <p>Click on an item to add it to your cart.</p>
         </section>
         <section className="products-and-cart">
