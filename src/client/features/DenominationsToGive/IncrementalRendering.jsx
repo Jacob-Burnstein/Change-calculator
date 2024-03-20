@@ -45,7 +45,7 @@ const IncrementalRendering = () => {
           </div>
           <div>
             <p className="changeP">
-              Give each customer the bills and coins below
+              Give the customer each of the bills and coins below
             </p>
           </div>
         </section>
